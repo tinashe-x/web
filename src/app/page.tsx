@@ -1,69 +1,196 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/Button";
+import { ProductCard } from "@/components/ProductCard";
+import { SectionHeading } from "@/components/SectionHeading";
+import { products, testimonials } from "@/data/products";
 
-export default function Home() {
+export default function HomePage() {
+  const featured = products.filter((p) => p.featured).slice(0, 4);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      {/* Hero — one composition, brand first, full-bleed image */}
+      <section className="relative min-h-[100svh] overflow-hidden bg-noir">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/hero/cover.jpg"
+          alt="All Classy embroidered cushions"
+          fill
           priority
+          className="hero-image object-cover object-center opacity-80"
+          sizes="100vw"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/45 to-noir/25" />
+        <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-32 md:px-8 md:pb-24">
+          <p className="animate-rise text-[0.7rem] uppercase tracking-[0.35em] text-gold-soft">
+            Pretoria · Home décor
           </p>
+          <h1 className="animate-rise-delay mt-4 max-w-3xl font-display text-5xl leading-[0.95] tracking-[0.04em] text-ivory md:text-7xl lg:text-8xl">
+            ALL CLASSY
+          </h1>
+          <p className="animate-rise-delay-2 mt-5 max-w-md text-base leading-relaxed text-ivory/80 md:text-lg">
+            We do All things CLASSY — cushions with presence, embroidery with meaning.
+          </p>
+          <div className="animate-rise-delay-2 mt-8 flex flex-wrap gap-3">
+            <Button href="/shop" variant="gold">
+              Shop cushions
+            </Button>
+            <Button href="/embroidery" variant="outlineLight">
+              Custom embroidery
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+      </section>
+
+      {/* Story */}
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 md:grid-cols-2 md:px-8 md:py-32">
+        <div className="relative aspect-[4/5] overflow-hidden bg-cream">
+          <Image
+            src="/images/brand/profile.jpg"
+            alt="Mustard All Classy cushion"
+            fill
+            className="object-cover"
+            sizes="(max-width:768px) 100vw, 50vw"
+          />
+        </div>
+        <div>
+          <SectionHeading
+            eyebrow="The atelier"
+            title="Soft luxury, stitched with intent."
+            body="From ivory karate-chop pillows to noir embroidery and mustard pattern, each piece is made to feel considered — not cluttered. Designed in Pretoria for homes that love quiet drama."
+          />
+          <div className="mt-8">
+            <Button href="/about" variant="outline">
+              Our story
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured */}
+      <section className="bg-mist px-5 py-24 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Featured" title="Pieces with presence." />
+            <Button href="/shop" variant="outline">
+              View all
+            </Button>
+          </div>
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {featured.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Dark collection strip */}
+      <section className="relative overflow-hidden bg-noir text-ivory">
+        <div className="absolute inset-0 opacity-35">
+          <Image
+            src="/images/hero/cover.jpg"
+            alt=""
+            fill
+            className="object-cover object-top"
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-noir via-noir/90 to-noir/55" />
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-24 md:grid-cols-[1.1fr_0.9fr] md:items-center md:px-8 md:py-28">
+          <SectionHeading
+            light
+            eyebrow="Collection"
+            title="Noir & Mustard"
+            body="Bold black velvet, cream embroidery, and mustard geometry — for rooms that want contrast without chaos."
+          />
+          <div className="flex flex-col items-start gap-6 md:items-end md:text-right">
+            <p className="max-w-sm text-sm leading-relaxed text-ivory/65">
+              A darker accent from the All Classy world — the same craft, a stronger silhouette.
+            </p>
+            <Button href="/collections/noir-mustard" variant="gold">
+              Enter the collection
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Embroidery teaser */}
+      <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 md:grid-cols-2 md:px-8 md:py-32">
+        <div className="order-2 md:order-1">
+          <SectionHeading
+            eyebrow="Made for you"
+            title="Custom embroidery."
+            body="Initials, a short phrase, a date that matters — stitched in gold-tone or tone-on-tone. Start on a product, or build the full request here."
+          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="/embroidery" variant="primary">
+              Design yours
+            </Button>
+            <Button href="/shop" variant="outline">
+              Browse bases
+            </Button>
+          </div>
+        </div>
+        <div className="relative order-1 aspect-square overflow-hidden bg-cream md:order-2">
+          <Image
+            src="/images/lookbook/post-06.jpg"
+            alt="Embroidered cushion detail"
+            fill
+            className="object-cover"
+            sizes="(max-width:768px) 100vw, 50vw"
+          />
+        </div>
+      </section>
+
+      {/* Feedback */}
+      <section className="border-y border-charcoal/10 bg-cream px-5 py-24 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading eyebrow="Client feedback" title="Loved in real homes." />
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <blockquote key={t.name} className="border-t border-gold/40 pt-6">
+                <p className="font-display text-2xl leading-snug text-charcoal">“{t.quote}”</p>
+                <footer className="mt-5 text-xs uppercase tracking-[0.2em] text-taupe">
+                  {t.name} · {t.place}
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram lookbook strip */}
+      <section className="px-5 py-24 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading
+              eyebrow="@allclassycollections"
+              title="From the lookbook."
+              body="Lifestyle frames pulled from the All Classy feed."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <Button href="/lookbook" variant="outline">
+              Full lookbook
+            </Button>
+          </div>
+          <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+              <Link
+                key={n}
+                href="/lookbook"
+                className="product-media relative aspect-[3/4] overflow-hidden bg-cream"
+              >
+                <Image
+                  src={`/images/lookbook/post-${String(n).padStart(2, "0")}.jpg`}
+                  alt={`All Classy look ${n}`}
+                  fill
+                  className="object-cover"
+                  sizes="25vw"
+                />
+              </Link>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
