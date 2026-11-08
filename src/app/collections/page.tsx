@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/AssetImage";
 import Link from "next/link";
 import { SectionHeading } from "@/components/SectionHeading";
 import { collections } from "@/data/products";

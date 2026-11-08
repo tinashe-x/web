@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/AssetImage";
 import { useState } from "react";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AssetImage as Image } from "@/components/AssetImage";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { ProductCard } from "@/components/ProductCard";
