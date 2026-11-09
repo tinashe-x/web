@@ -1,6 +1,6 @@
 # All Classy Collections
 
-UI-only ecommerce storefront for the All Classy cushion brand (Pretoria).
+UI-only ecommerce storefront for the All Classy cushion brand (Midrand).
 
 ## Live demo (GitHub Pages)
 

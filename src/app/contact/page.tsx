@@ -10,7 +10,7 @@ export default function ContactPage() {
         <SectionHeading
           eyebrow="Contact"
           title="Say hello."
-          body="Orders, embroidery quotes, and styling questions — Pretoria based, shipping across South Africa."
+          body="Orders, embroidery quotes, and styling questions — Midrand based, shipping across South Africa."
         />
         <ul className="mt-10 space-y-4 text-sm text-charcoal/80">
           <li>
@@ -25,7 +25,7 @@ export default function ContactPage() {
             <span className="block text-[0.68rem] uppercase tracking-[0.22em] text-taupe">
               Location
             </span>
-            <p className="mt-1 text-lg text-charcoal">Pretoria, South Africa</p>
+            <p className="mt-1 text-lg text-charcoal">Midrand, South Africa</p>
           </li>
           <li>
             <span className="block text-[0.68rem] uppercase tracking-[0.22em] text-taupe">

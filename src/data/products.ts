@@ -109,7 +109,7 @@ export const products: Product[] = [
     price: 520,
     collection: "neutrals",
     description:
-      "Lifestyle-ready scatter with deep fill — styled as seen on our Pretoria shoots.",
+      "Lifestyle-ready scatter with deep fill — styled as seen on our Midrand shoots.",
     image: "/images/lookbook/post-02.jpg",
     images: ["/images/lookbook/post-02.jpg", "/images/lookbook/post-08.jpg"],
     colors: ["Stone", "Greige"],
@@ -226,19 +226,34 @@ export const products: Product[] = [
 
 export const testimonials = [
   {
-    quote: "The cushions made our lounge look like a magazine spread.",
+    quote:
+      "I sent Lily a photo of our sofa and she built the perfect mix — ivory, taupe, and one embroidered piece. The lounge finally looks finished.",
     name: "Thandi M.",
-    place: "Pretoria",
+    place: "Midrand",
   },
   {
-    quote: "Embroidery arrived perfect — gold stitch on cream is everything.",
+    quote:
+      "Embroidery arrived perfect — gold stitch on cream is everything. Guests keep asking where we bought them.",
     name: "Lebo K.",
     place: "Johannesburg",
   },
   {
-    quote: "Quality fill that keeps the karate chop. Obsessed.",
+    quote:
+      "The fill holds the karate chop for weeks. Texture and colour feel richer in person than in the photos.",
     name: "Ayesha R.",
     place: "Centurion",
+  },
+  {
+    quote:
+      "Noir & Mustard is dramatic without being loud. Exactly the quiet luxury we wanted for the guest suite.",
+    name: "Naledi S.",
+    place: "Sandton",
+  },
+  {
+    quote:
+      "Ordered a bedroom set and a monogrammed gift cushion. Communication on WhatsApp was clear, and delivery was on time.",
+    name: "Michelle D.",
+    place: "Midrand",
   },
 ];
 

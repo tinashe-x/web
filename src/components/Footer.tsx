@@ -8,7 +8,7 @@ export function Footer() {
           <p className="font-display text-3xl tracking-[0.06em] text-charcoal">ALL CLASSY</p>
           <p className="mt-2 text-sm uppercase tracking-[0.28em] text-taupe">Collections</p>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-charcoal/70">
-            We do All things CLASSY — handcrafted cushions from Pretoria, made to soften and elevate your home.
+            We do All things CLASSY — handcrafted cushions from Midrand, made to soften and elevate your home.
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export function Footer() {
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-taupe">Visit</p>
           <ul className="mt-4 space-y-2 text-sm text-charcoal/80">
-            <li>Pretoria, South Africa</li>
+            <li>Midrand, South Africa</li>
             <li>
               <a href="tel:+27612341990" className="hover:text-charcoal">
                 +27 61 234 1990
